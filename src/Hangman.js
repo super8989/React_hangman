@@ -15,12 +15,19 @@ class Hangman extends Component {
         images: [img0, img1, img2, img3, img4, img5, img6]
     };
 
+    constructor(props) {
+        super(props);
+        this.state = { nWrong: 0, guessed: new Set(), answer: 'apple' };
+    }
 
 
     render() {
         return (
-            <div>Hangman Game
-            
+            <div className="Hangman">
+                <h1>Hangman</h1>
+                <img src={this.props.images[this.state.nWrong]} />
+                <p className='Hangman-word'>GuessedWord</p>
+                <p className="Hangman-btns">Buttons</p>            
             </div>
         )
     }
