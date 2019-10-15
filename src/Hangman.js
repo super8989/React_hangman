@@ -20,13 +20,20 @@ class Hangman extends Component {
         this.state = { nWrong: 0, guessed: new Set(), answer: 'apple' };
     }
 
+    /* guessedWord: show current state of word:
+       if guessed letters are {a, p, e}, show "app_e" for "apple" */
+    guessedWord() {
+        return this.state.answer
+            .split("")
+            .map(ltr => (this.state.guessed.has(ltr) ? ltr: "_"));
+    }
 
     render() {
         return (
             <div className="Hangman">
                 <h1>Hangman</h1>
                 <img src={this.props.images[this.state.nWrong]} />
-                <p className='Hangman-word'>GuessedWord</p>
+                <p className='Hangman-word'>{this.guessedWord()}</p>
                 <p className="Hangman-btns">Buttons</p>            
             </div>
         )
