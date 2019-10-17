@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { randomWord } from './words';
 
 import "./Hangman.css";
 
@@ -19,7 +20,7 @@ class Hangman extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { nWrong: 0, guessed: new Set(), answer: 'apple' };
+        this.state = { nWrong: 0, guessed: new Set(), answer: randomWord() };
         this.handleGuess = this.handleGuess.bind(this);
     }
 
